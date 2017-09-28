@@ -6,8 +6,9 @@ const StyledSection = styled.section`
     width: 100vw;
     background-color: #fafafa;
     padding-top: 56px;
+    background: ${({ bgImg }) => bgImg ? `url(${bgImg}) no-repeat center` : ''};
 `;
 
-export const Section = ({ children }) => {
-    return <StyledSection>{children}</StyledSection>;
+export const Section = ({ children, bgImg }) => {
+    return <StyledSection bgImg={bgImg}>{children}</StyledSection>;
 };

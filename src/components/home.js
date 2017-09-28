@@ -13,7 +13,12 @@ export default () => {
             <Container>
                 <Row>
                     <Column style={{ paddingBottom: 0 }}>
-                        <Jumbotron style={{ height: 'calc(100vh - 97px)', borderBottomLeftRadius: 0, borderBottomRightRadius: 0, marginBottom: 0 }}>
+                        <Jumbotron style={{
+                            height: 'calc(100vh - 96px)',
+                            borderBottomLeftRadius: 0,
+                            borderBottomRightRadius: 0,
+                            marginBottom: 0,
+                            boxShadow: '0 0 10px rgba(0,0,0,.3)' }}>
                             <Container fluid>
                                 <h1 className="display-3">Hello, world!</h1>
                                 <p className="lead">
