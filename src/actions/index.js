@@ -1,5 +1,9 @@
 import { ApiAiClient } from 'api-ai-javascript/es6/ApiAiClient';
-import { LISTENING, REQUESTED_TARGET, NAVIGATION_DONE, STOP_LISTENING } from './types';
+import {
+    LISTENING, REQUESTED_TARGET,
+    NAVIGATION_DONE, STOP_LISTENING,
+    SAY_TARGET, REPEAT_COMMAND,
+} from './types';
 import GoogleNowSound from '../assets/sounds/google_now_voice.mp3';
 
 export const listen = () => {
@@ -17,16 +21,19 @@ export const listen = () => {
             const last = results.length - 1;
             const text = results[last][0].transcript;
             client.textRequest(text).then(({ result }) => {
-                const { action, parameters: { whereto } } = result;
+                const { action, parameters } = result;
+                let whereto = '';
+                if (parameters) whereto = parameters.whereto;
+                else return dispatch({ type: SAY_TARGET });
                 if (action === 'navigate') {
                     dispatch({
                         type: REQUESTED_TARGET,
                         payload: whereto,
                     });
                 }
-            }).catch((error) => {
-                console.log(error);
-                // TODO: Sorry! couldn't get that
+                return 0;
+            }).catch(() => {
+                dispatch({ type: REPEAT_COMMAND });
             });
         });
         recognition.addEventListener('speechend', () => {
