@@ -103,7 +103,6 @@ class Jarvis extends Component {
 
     renderFeedback() {
         const { repeat, sayTarget } = this.props;
-        console.log(repeat, sayTarget);
         if (repeat) return 'Sorry, couldn\'t get that';
         else if (sayTarget) return 'Where do you want to go?';
         return '';
