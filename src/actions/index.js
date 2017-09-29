@@ -6,16 +6,17 @@ import {
 } from './types';
 import GoogleNowSound from '../assets/sounds/google_now_voice.mp3';
 
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.lang = 'en-EN';
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
+
 export const listen = () => {
     return (dispatch) => {
         dispatch({ type: LISTENING });
         new Audio(GoogleNowSound).play();
         const client = new ApiAiClient({ accessToken: '8fd7835cb9ea4a97849eb376652e3e4e' });
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        const recognition = new SpeechRecognition();
-        recognition.lang = 'en-EN';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
         recognition.start();
         recognition.addEventListener('result', ({ results }) => {
             const last = results.length - 1;
@@ -37,6 +38,7 @@ export const listen = () => {
             });
         });
         recognition.addEventListener('speechend', () => {
+            recognition.stop();
             dispatch({ type: STOP_LISTENING });
         });
     };
@@ -50,4 +52,9 @@ export const navigate = (nextTarget, callback) => {
             payload: nextTarget,
         });
     };
+};
+
+export const stopListening = () => {
+    recognition.stop();
+    return { type: STOP_LISTENING };
 };

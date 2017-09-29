@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { FaMicrophone, FaSoundcloud } from 'react-icons/lib/fa';
-import { listen, navigate } from '../actions';
+import { listen, stopListening, navigate } from '../actions';
 
 const StyledJarvis = styled.div`
     display: flex;
@@ -93,6 +93,7 @@ class Jarvis extends Component {
     onListen() {
         const { listening } = this.props;
         if (!listening) this.props.listen();
+        else this.props.stopListening();
     }
 
     renderIcon() {
@@ -136,5 +137,6 @@ function mapStateToProps({ jarvis: { listening, currentTarget, nextTarget, repea
 
 export default connect(mapStateToProps, {
     listen,
+    stopListening,
     navigate,
 })(Jarvis);
