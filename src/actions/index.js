@@ -1,4 +1,4 @@
-import { ApiAiClient } from 'api-ai-javascript';
+import axios from 'axios';
 import {
     LISTENING, REQUESTED_TARGET,
     NAVIGATION_DONE, STOP_LISTENING,
@@ -6,6 +6,7 @@ import {
 } from './types';
 import GoogleNowSound from '../assets/sounds/google_now_voice.mp3';
 
+const API_ENDPOINT = 'http://localhost:7777/api';
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.lang = 'en-EN';
@@ -16,31 +17,33 @@ export const listen = () => {
     return (dispatch) => {
         dispatch({ type: LISTENING });
         new Audio(GoogleNowSound).play();
-        const client = new ApiAiClient({ accessToken: '8fd7835cb9ea4a97849eb376652e3e4e' });
         recognition.start();
-        recognition.addEventListener('result', ({ results }) => {
+        recognition.onresult = ({ results }) => {
             const last = results.length - 1;
             const text = results[last][0].transcript;
-            client.textRequest(text).then(({ result }) => {
-                const { action, parameters } = result;
-                let whereto = '';
-                if (parameters) whereto = parameters.whereto;
-                else return dispatch({ type: SAY_TARGET });
-                if (action === 'navigate') {
+            axios.post(`${API_ENDPOINT}/request`, { text })
+                .then(({ data: { target } }) => {
                     dispatch({
                         type: REQUESTED_TARGET,
-                        payload: whereto,
+                        payload: target,
                     });
-                }
-                return 0;
-            }).catch(() => {
-                dispatch({ type: REPEAT_COMMAND });
-            });
-        });
-        recognition.addEventListener('speechend', () => {
+                })
+                .catch(({ response: { data: { error } } }) => {
+                    switch (error) {
+                        case SAY_TARGET:
+                            return dispatch({ type: SAY_TARGET });
+                        case REPEAT_COMMAND:
+                            return dispatch({ type: REPEAT_COMMAND });
+                        default:
+                            console.log('request failed');
+                    }
+                    return 0;
+                });
+        };
+        recognition.onspeechend = () => {
             recognition.stop();
             dispatch({ type: STOP_LISTENING });
-        });
+        };
     };
 };
 

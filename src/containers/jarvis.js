@@ -84,9 +84,7 @@ class Jarvis extends Component {
     componentDidUpdate() {
         const { nextTarget, history } = this.props;
         if (nextTarget) {
-            this.props.navigate(nextTarget, () => {
-                history.push(`/${nextTarget}`);
-            });
+            this.props.navigate(nextTarget, () => history.push(`/${nextTarget}`));
         }
     }
 
