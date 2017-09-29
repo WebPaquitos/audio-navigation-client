@@ -53,7 +53,7 @@ const StyledJarvis = styled.div`
         opacity: 0;
         padding: 20px;
         transition: all 200ms;
-        background-color: #EF5350;
+        background-color: #C75757;
         box-shadow: 0 0 15px rgba(0,0,0,.3);
         color: #fff;
         border-radius: 50px;
