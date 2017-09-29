@@ -30,13 +30,13 @@ const StyledJarvis = styled.div`
         animation: ${({ listening }) => listening ? 'Listening-Cloud infinite 2s linear' : ''};
         @keyframes Listening-Cloud {
             0% {
-                transform: scale(1);
+                transform: scale(1.2);
             }
             50% {
                 transform: scale(.8);
             }
             100% {
-                transform: scale(1);
+                transform: scale(1.2);
             }
         }
     }

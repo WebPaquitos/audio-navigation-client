@@ -1,4 +1,4 @@
-import { ApiAiClient } from 'api-ai-javascript/es6/ApiAiClient';
+import { ApiAiClient } from 'api-ai-javascript';
 import {
     LISTENING, REQUESTED_TARGET,
     NAVIGATION_DONE, STOP_LISTENING,
