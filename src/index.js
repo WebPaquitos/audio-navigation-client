@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import PromiseMiddleware from 'redux-thunk';
 import { BrowserRouter as Router, Switch, Route, withRouter, Redirect } from 'react-router-dom';
+import { ReactAudioAssistant as Jarvis } from 'react-audio-assistant';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from './components/header';
 import { Main } from './components/elements';
@@ -12,7 +13,7 @@ import Home from './components/home';
 import Gallery from './components/gallery';
 import Contacts from './components/contacts';
 import NotFound404 from './components/not_found';
-import Jarvis from './containers/jarvis';
+// import Jarvis from './containers/jarvis';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 

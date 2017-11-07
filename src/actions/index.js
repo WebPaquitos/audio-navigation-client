@@ -6,7 +6,7 @@ import {
 } from './types';
 import GoogleNowSound from '../assets/sounds/google_now_voice.mp3';
 
-const API_ENDPOINT = 'http://localhost:7777/api';
+const API_ENDPOINT = 'http://raaapi.luisdev.eu/api';
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.lang = 'en-EN';
