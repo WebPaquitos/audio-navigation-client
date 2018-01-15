@@ -5372,9 +5372,9 @@ react-addons-transition-group@^15.6.2:
   dependencies:
     react-transition-group "^1.2.0"
 
-react-audio-assistant@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/react-audio-assistant/-/react-audio-assistant-0.3.6.tgz#03503b37d3539b7ef84bf579a9ad3248d74077f7"
+react-audio-assistant@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/react-audio-assistant/-/react-audio-assistant-0.3.7.tgz#cbcd053ca2444070431dc55b31dffda81f4bb738"
 
 react-dev-utils@^4.1.0:
   version "4.1.0"

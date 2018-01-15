@@ -110,7 +110,9 @@ class Contacts extends Component {
                         </Column>
                     </Row>
                 </Container>
-                <ReactAudioAssistantWithRedux navigate={target => this.props.history.push(target)}/>
+                <ReactAudioAssistantWithRedux
+                    token="8fd7835cb9ea4a97849eb376652e3e4e"
+                    navigate={target => this.props.history.push(target)}/>
             </Section>
         );
     }

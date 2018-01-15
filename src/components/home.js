@@ -37,7 +37,9 @@ export default ({ history }) => {
                     </Column>
                 </Row>
             </Container>
-            <ReactAudioAssistantWithRedux navigate={target => history.push(target)}/>
+            <ReactAudioAssistantWithRedux
+                token="8fd7835cb9ea4a97849eb376652e3e4e"
+                navigate={target => history.push(target)}/>
         </Section>
     );
 };
