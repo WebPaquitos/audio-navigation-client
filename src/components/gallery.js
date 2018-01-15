@@ -11,9 +11,11 @@ import {
     CardSubtitle,
     CardBlock,
 } from 'reactstrap';
+import { ReactAudioAssistantWithRedux } from 'react-audio-assistant';
+
 import { Section, Column } from './elements';
 
-export default () => {
+export default ({ history }) => {
     return (
         <Section>
             <Container>
@@ -138,6 +140,7 @@ export default () => {
                     </Column>
                 </Row>
             </Container>
+            <ReactAudioAssistantWithRedux navigate={target => history.push(target)}/>
         </Section>
     );
 };

@@ -3,6 +3,8 @@ import {
     Container, Row, Form,
     FormGroup, Label, Input, FormText,
 } from 'reactstrap';
+import { ReactAudioAssistantWithRedux } from 'react-audio-assistant';
+
 import { Section, Column } from './elements';
 
 class Contacts extends Component {
@@ -108,6 +110,7 @@ class Contacts extends Component {
                         </Column>
                     </Row>
                 </Container>
+                <ReactAudioAssistantWithRedux navigate={target => this.props.history.push(target)}/>
             </Section>
         );
     }

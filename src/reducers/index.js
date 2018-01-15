@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-// import JarvisReducer from './jarvis';
-import { Reducer as jarvis } from 'react-audio-assistant';
+import { audioAssistant } from 'react-audio-assistant';
 
 export default combineReducers({
-    jarvis,
+    audioAssistant,
 });

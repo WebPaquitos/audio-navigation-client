@@ -1136,8 +1136,8 @@ boom@2.x.x:
     hoek "2.x.x"
 
 bootstrap@^4.0.0-alpha.6:
-  version "4.0.0-beta"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-beta.tgz#dc5928175d2e71310bc668cf9e05a907211b72a6"
+  version "4.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-beta.3.tgz#60f0660bc3d121176514b361f6f83201c7ff8874"
 
 boxen@^0.6.0:
   version "0.6.0"
@@ -5371,6 +5371,10 @@ react-addons-transition-group@^15.6.2:
   resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.6.2.tgz#8baebc2ae91ccdbf245fe29c9fd3d36f8b471923"
   dependencies:
     react-transition-group "^1.2.0"
+
+react-audio-assistant@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/react-audio-assistant/-/react-audio-assistant-0.3.6.tgz#03503b37d3539b7ef84bf579a9ad3248d74077f7"
 
 react-dev-utils@^4.1.0:
   version "4.1.0"

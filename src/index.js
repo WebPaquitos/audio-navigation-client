@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import PromiseMiddleware from 'redux-thunk';
-import { BrowserRouter as Router, Switch, Route, withRouter, Redirect } from 'react-router-dom';
-import { ReactAudioAssistant as Jarvis } from 'react-audio-assistant';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+
 import Header from './components/header';
 import { Main } from './components/elements';
 import Footer from './components/footer';
@@ -13,7 +13,6 @@ import Home from './components/home';
 import Gallery from './components/gallery';
 import Contacts from './components/contacts';
 import NotFound404 from './components/not_found';
-// import Jarvis from './containers/jarvis';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -22,7 +21,6 @@ const store = createStoreWithMiddleware(
     reducers,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
-const JarvisWithRouter = withRouter(Jarvis);
 
 ReactDOM.render(
     <Provider key="main" store={store}>
@@ -38,7 +36,6 @@ ReactDOM.render(
                         <Route component={NotFound404}/>
                     </Switch>
                 </Main>
-                <JarvisWithRouter/>
                 <Footer/>
             </div>
         </Router>
