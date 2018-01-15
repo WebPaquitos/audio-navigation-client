@@ -15,7 +15,7 @@ export default () => {
             <Container>
                 <Row>
                     <Column style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#fafafa' }}>
-                        <small>© Todos os direitos reservados. 2017</small>
+                        <small>© WebPaquitos. 2017</small>
                         <br/>
                         <Button to="/contacts" tag={Link} color="link" size="sm">Contact us</Button>
                     </Column>

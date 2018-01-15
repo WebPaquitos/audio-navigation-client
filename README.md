@@ -32,13 +32,27 @@ If the DialogFlow API does not recognize a destination, the package will ask aga
 
 If you only say "Go", the package will ask "Where do you want to go?" and start listening again for your speech input.
 
+![Didn't get that](what.png)
+
 Example of speech test sentences:
+
+![Home](listening.png)
 
 `"Navigate to contacts"`
 
+![Contacts](contacts.png)
+
 `"Navigate to gallery"`
 
+![Gallery](gallery.png)
+
 `"Go home"`
+
+![Gallery](normal.png)
+
+Example working:
+
+![Example](example.gif)
  
 ## License
 

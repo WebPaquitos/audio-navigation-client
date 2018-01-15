@@ -46,8 +46,8 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <StyledNavbar color="primary" inverse toggleable fixed="top">
-                    <NavbarToggler right onClick={this.onToggleNavbar}/>
+                <StyledNavbar color="primary" expand="md" dark fixed="top">
+                    <NavbarToggler onClick={this.onToggleNavbar}/>
                     <NavbarBrand to="/" tag={Link}>
                         <img src={LogoImg} className="logo" alt="logo" style={{ height: '31px' }}/>
                     </NavbarBrand>
